@@ -34,7 +34,7 @@ func (s *authService) Login(email string, password string) (string, error) {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"user_id": user.ID,
 		"email":   user.Name,
-		"exp":     time.Now().Add(time.Hour * 72).Unix(),
+		"exp":     time.Now().Add(time.Hour * 2).Unix(),
 	})
 
 	tokenString, err := token.SignedString([]byte("minha-chave-secreta"))
